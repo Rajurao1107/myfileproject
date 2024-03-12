@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<style>
+  #con {
+    position: relative;
+    text-align: center;
+  }
+
+  input {
+    position: relative;
+    width: 30%;
+    height: 30px;
+    text-align: center;
+    outline: none;
+    border: hidden;
+    border-radius: 5px;
+  }
+
+  button {
+    position: relative;
+    width: 30%;
+    height: 40px;
+    border-radius: 10px;
+    background: #4FFF70;
+    border: hidden;
+  }
+</style>
+
+<body bgcolor="orange">
+  <div id="con">
+    <p>Birth Place</p>
+    <input type="text" id="district" placeholder="District">
+    <input type="text" id="state" placeholder="State">
+    <p>Birth Time</p>
+    <input type="text" id="hour" placeholder="Hour">
+    <input type="text" id="minute" placeholder="Minute">
+    <p>Birth Date</p>
+    <input type="text" id="day" placeholder="Day">
+    <input type="text" id="month" placeholder="Month">
+    <input type="text" id="year" placeholder="Year"><br><br>
+    <button onclick="birthChart()">CREATE</button>
+
+  </div>
+  <script>
+    function birthChart() {
+      var district = document.getElementById("district").value;
+      var state = document.getElementById("state").value;
+      var hour = document.getElementById("hour").value;
+      var minute = document.getElementById("minute").value;
+      var day = document.getElementById("day").value;
+      var month = document.getElementById("month").value;
+      var year = document.getElementById("year").value;
+
+      var url = "https://vedastroapi.azurewebsites.net/api/Calculate/SouthIndianChart/Location/" + district + "," + state + ",India/Time/" + hour + ":" + minute + "/" + day + "/" + month + "/" + year + "/+05:30";
+      window.open(url, "_self")
+    }
+  </script>
+
+</body>
+
+</html>
